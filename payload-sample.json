@@ -1,0 +1,3 @@
+{
+    "code": "from pyspark.sql.functions import col\n\ndata = [(1, 'Alice'), (2, 'Bob'), (3, 'Charlie')]\ndf = spark.createDataFrame(data, ['id', 'name'])\n\n# Salva no local padrão esperado pela API\ndf.write.mode('overwrite').parquet('/tmp/spark_output/result.parquet')\n\nprint('Arquivo Parquet salvo com sucesso!')"
+}
