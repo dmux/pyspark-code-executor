@@ -31,7 +31,7 @@ def extrair_nome_base_limpo(caminho_arquivo):
   # [^/]*$   : Corresponde à extensão (qualquer coisa que não seja barra até o fim).
   #            O '$' garante que estamos olhando para o final da string.
 
-  padrao = r"(?:.*/)?(.+)\.[^/]*$" # Regex ajustada para capturar pontos no nome
+  padrao = r"(?:.*/)?(.+)[^/]*$" # Regex ajustada para capturar pontos no nome
   match = re.search(padrao, caminho_arquivo)
 
   if match:
@@ -80,6 +80,6 @@ caminho_com_ponto = "s3://relatorios/mensal/VENDAS.JULHO.2024.csv"
 nome_base_ponto = extrair_nome_base_limpo(caminho_com_ponto)
 print(f"Caminho com ponto: '{caminho_com_ponto}' -> Nome Base: '{nome_base_ponto}'") # Deve imprimir 'VENDAS_JULHO_2024'
 
-caminho_f8 = "{work_space}/dados_brutos/F8.QUERY_FOR_TBF8DPR5_DIARIO.parquet"
+caminho_f8 = "{work_space}/dados_brutos/F8.QUERY_FOR_TBF8DPR5_DIARIO"
 nome_base_f8 = extrair_nome_base_limpo(caminho_f8)
 print(f"Caminho F8: '{caminho_f8}' -> Nome Base: '{nome_base_f8}'") # Deve imprimir 'F8_TBLR'
