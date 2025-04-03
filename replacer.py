@@ -41,6 +41,8 @@ def extrair_nome_base_limpo(caminho_arquivo):
   #              Esta versão é geralmente suficiente e mais fácil de ler.
 
   padrao = r"(?:.*/)?([^.]+)\.[^/]*$"
+  padrao = r"(?:.*/)?(.+)\.[^/]*$" # Regex ajustada para capturar pontos no nome
+
   match = re.search(padrao, caminho_arquivo)
 
   if match:
